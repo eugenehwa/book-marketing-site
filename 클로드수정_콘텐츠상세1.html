@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>콘텐츠 마케팅 카테고리 예시</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background: linear-gradient(135deg, #FFEB60, #fff7b3);
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 배경 애니메이션을 위한 요소 */
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,235,96,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #222;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+  
+  h2 {
+    color: #1a1a1a;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  h2:nth-of-type(1) { animation-delay: 0.6s; }
+  h2:nth-of-type(2) { animation-delay: 1.2s; }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .intro {
+    background: #fff9cc;
+    border-left: 5px solid #FFEB60;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: slideInLeft 1s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .intro:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(255,235,96,0.3);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 14px;
+    opacity: 0;
+    animation: tableSlideUp 1s ease-out forwards;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  table:nth-of-type(1) { animation-delay: 0.8s; }
+  table:nth-of-type(2) { animation-delay: 1.4s; }
+  
+  @keyframes tableSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  table:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  th, td {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    vertical-align: top;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  th {
+    background: #FFEB60;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e6b800;
+    transition: width 0.3s ease;
+  }
+  
+  table:hover th::after {
+    width: 100%;
+  }
+  
+  tr:hover td {
+    background-color: #f8fafc;
+    transform: scale(1.01);
+  }
+  
+  tr {
+    opacity: 0;
+    animation: rowFadeIn 0.6s ease-out forwards;
+  }
+  
+  tr:nth-child(1) { animation-delay: 0.1s; }
+  tr:nth-child(2) { animation-delay: 0.2s; }
+  tr:nth-child(3) { animation-delay: 0.3s; }
+  tr:nth-child(4) { animation-delay: 0.4s; }
+  tr:nth-child(5) { animation-delay: 0.5s; }
+  tr:nth-child(6) { animation-delay: 0.6s; }
+  tr:nth-child(7) { animation-delay: 0.7s; }
+  
+  @keyframes rowFadeIn {
+    0% { 
+      opacity: 0; 
+      transform: translateX(-20px);
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateX(0);
+    }
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #FFEB60;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: bounceIn 1s ease-out forwards;
+    animation-delay: 2s;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .back-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .back-button:hover::before {
+    left: 100%;
+  }
+  
+  .back-button:hover {
+    background-color: #ffe13b;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,235,96,0.4);
+  }
+  
+  .back-button:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  /* 강조 효과를 위한 스타일 */
+  .highlight-cell {
+    background: linear-gradient(45deg, #fff9cc, #ffffff);
+    font-weight: 500;
+  }
+  
+  tr:hover .highlight-cell {
+    background: linear-gradient(45deg, #fff0a5, #f8fafc);
+  }
+  
+  /* 페이드인 스택 애니메이션 */
+  .stagger-animation {
+    opacity: 0;
+    animation: staggerFade 0.8s ease-out forwards;
+  }
+  
+  .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+  
+  @keyframes staggerFade {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 반응형 애니메이션 조정 */
+  @media (max-width: 768px) {
+    table:hover,
+    .intro:hover {
+      transform: none;
+    }
+    
+    .back-button:hover {
+      transform: scale(1.02);
+    }
+    
+    header::before {
+      animation-duration: 4s;
+    }
+  }
+  
+  /* 접근성을 위한 애니메이션 비활성화 옵션 */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>콘텐츠 마케팅으로 책을 더 돋보이게</h1>
+</header>
+<div class="container">
+  <div class="intro">
+    ✨ 출판 마케팅, 단순 홍보를 넘어<br>
+    <strong>'왜 이 책을 읽어야 하는가'를 설득하는 콘텐츠</strong>로 독자에게 다가갑니다.
+  </div>
+  
+  <h2 class="stagger-animation">📌 콘텐츠 카테고리 예시</h2>
+  <table>
+    <tr>
+      <th>유형</th>
+      <th>설명</th>
+      <th>추가 아이디어</th>
+    </tr>
+    <tr>
+      <td class="highlight-cell">출간 알림</td>
+      <td>출간 소식, 표지·목차·콘셉트 소개</td>
+      <td>저자 메시지 영상, 티저 영상, '왜 이 책인가' 메시지 카드</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">본문 발췌 도서 소개</td>
+      <td>인상적인 문장, 챕터 요약</td>
+      <td>챕터별 핵심 카드, '이 문장 때문에 읽는다' 시리즈</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">서평단 모집 홍보</td>
+      <td>신청 유도 콘텐츠</td>
+      <td>신청 방법 영상, 신청 링크, 이전 서평 반응 공유</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">이벤트 홍보 콘텐츠</td>
+      <td>증정, 할인, 굿즈 등</td>
+      <td>굿즈 실물 이미지, 언박싱 영상, 리그램 유도</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">기획형 홍보 콘텐츠</td>
+      <td>스토리형 / 정보형</td>
+      <td>트렌드 연계, 작가 인터뷰, 키워드 큐레이션</td>
+    </tr>
+  </table>
+  
+  <h2 class="stagger-animation">📌 기획형 콘텐츠 세분화</h2>
+  <table>
+    <tr>
+      <th>서브유형</th>
+      <th>설명</th>
+      <th>예시</th>
+    </tr>
+    <tr>
+      <td class="highlight-cell">스토리형</td>
+      <td>저자 스토리, 집필 비하인드</td>
+      <td>"이 책을 쓰게 된 계기", "집필 중 가장 힘들었던 점"</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">정보성</td>
+      <td>독자에게 도움이 되는 정보·인사이트</td>
+      <td>"이 책을 제대로 읽는 법", 분야 트렌드 해설</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">큐레이션형</td>
+      <td>같은 주제의 책·작가·키워드 묶어 소개</td>
+      <td>"이 책과 함께 읽으면 좋은 책"</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">인터뷰형</td>
+      <td>저자·편집자 인터뷰</td>
+      <td>저자 Q&A 영상, 글 인터뷰</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">트렌드/이슈 연계</td>
+      <td>시사적 키워드와 연결</td>
+      <td>"왜 지금 이 책이 필요한가?"</td>
+    </tr>
+    <tr>
+      <td class="highlight-cell">라이프스타일 연계</td>
+      <td>책 내용을 독자의 삶에 적용</td>
+      <td>"직장인을 위한 ○○", "주말에 읽는 힐링 에세이"</td>
+    </tr>
+  </table>
+  
+  <a href="javascript:history.back()" class="back-button">🔙 메인 페이지로 돌아가기</a>
+</div>
+
+<script>
+// 테이블 행 애니메이션을 위한 추가 제어
+document.addEventListener('DOMContentLoaded', function() {
+  const tables = document.querySelectorAll('table');
+  
+  tables.forEach((table, tableIndex) => {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach((row, rowIndex) => {
+      if (rowIndex > 0) { // 헤더 제외
+        row.style.animationDelay = `${0.8 + tableIndex * 0.6 + rowIndex * 0.1}s`;
+      }
+    });
+  });
+});
+
+// 부드러운 뒤로가기 효과
+document.querySelector('.back-button').addEventListener('click', function(e) {
+  if (this.getAttribute('href') === 'javascript:history.back()') {
+    e.preventDefault();
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      history.back();
+    }, 300);
+  }
+});
+</script>
+
+</body>
+</html>
