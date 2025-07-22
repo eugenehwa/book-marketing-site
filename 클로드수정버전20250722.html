@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>출판 마케팅 소개</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background: linear-gradient(135deg, #FFEB60, #fff7b3);
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 배경 애니메이션을 위한 요소 */
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,235,96,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  header h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #222;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    position: relative;
+    z-index: 2;
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+  
+  h2 {
+    color: #1a1a1a;
+    margin-top: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  
+  aside {
+    background: #fff9cc;
+    border-left: 5px solid #FFEB60;
+    padding: 15px 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: slideInLeft 1s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  aside:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(255,235,96,0.3);
+  }
+  
+  ul {
+    margin: 10px 0 20px 0;
+    padding-left: 20px;
+  }
+  
+  ul li {
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    transition: transform 0.2s ease;
+  }
+  
+  ul li:nth-child(1) { animation-delay: 0.1s; }
+  ul li:nth-child(2) { animation-delay: 0.2s; }
+  ul li:nth-child(3) { animation-delay: 0.3s; }
+  ul li:nth-child(4) { animation-delay: 0.4s; }
+  ul li:nth-child(5) { animation-delay: 0.5s; }
+  
+  ul li:hover {
+    transform: translateX(3px);
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  section {
+    background: #fff;
+    padding: 25px 20px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sectionFadeIn 0.8s ease-out forwards;
+    transition: all 0.3s ease;
+  }
+  
+  section:nth-child(1) { animation-delay: 0.2s; }
+  section:nth-child(2) { animation-delay: 0.4s; }
+  section:nth-child(3) { animation-delay: 0.6s; }
+  section:nth-child(4) { animation-delay: 0.8s; }
+  section:nth-child(5) { animation-delay: 1.0s; }
+  
+  @keyframes sectionFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  th, td {
+    border: 1px solid #e2e8f0;
+    padding: 10px;
+    vertical-align: top;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+  
+  th {
+    background: #FFEB60;
+    font-weight: 700;
+  }
+  
+  tr:hover td {
+    background-color: #f8fafc;
+  }
+  
+  .bold { font-weight: 700; }
+  
+  .process-box {
+    border-left: 5px solid #FFEB60;
+    background: #fff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: processSlide 0.6s ease-out forwards;
+    transition: all 0.3s ease;
+  }
+  
+  .process-box:nth-child(1) { animation-delay: 0.1s; }
+  .process-box:nth-child(2) { animation-delay: 0.2s; }
+  .process-box:nth-child(3) { animation-delay: 0.3s; }
+  .process-box:nth-child(4) { animation-delay: 0.4s; }
+  .process-box:nth-child(5) { animation-delay: 0.5s; }
+  
+  @keyframes processSlide {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .process-box:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(255,235,96,0.3);
+  }
+  
+  .step-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+  }
+  
+  .process-box:hover .step-title {
+    color: #e6b800;
+  }
+  
+  .contact-box {
+    background: #fff9cc;
+    border-left: 5px solid #FFEB60;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
+  }
+  
+  .contact-box:hover {
+    animation: none;
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(255,235,96,0.4);
+  }
+  
+  .cta-section {
+    text-align: center;
+    margin: 25px 0;
+    opacity: 0;
+    animation: bounceIn 1s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #FFEB60;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .cta-button:hover::before {
+    left: 100%;
+  }
+  
+  .cta-button:hover {
+    background-color: #ffe13b;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,235,96,0.4);
+  }
+  
+  .cta-button:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  /* 스크롤 기반 애니메이션 */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 로딩 애니메이션 */
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+  }
+  
+  /* 반응형 애니메이션 조정 */
+  @media (max-width: 768px) {
+    .process-box:hover,
+    section:hover,
+    aside:hover {
+      transform: none;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.02);
+    }
+    
+    header::before {
+      animation-duration: 4s;
+    }
+  }
+  
+  /* 접근성을 위한 애니메이션 비활성화 옵션 */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>출판 마케팅, 고민이시죠?</h1>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>1. Introduction: 왜 이 서비스를 제안하는가?</h2>
+    <aside>
+      <p>📚 <span class="bold">"좋은 책을 만들었는데, 알릴 방법이 막막하신가요?"</span></p>
+      <p>1인·소규모 출판사는 마케팅을 체계적으로 진행하기엔 인력과 예산 모두 부담스러운 현실입니다.</p>
+      <p><span class="bold">출판 유통·영업·마케팅을 총괄한 마케팅 팀장</span> 출신과 
+<br><span class="bold">단행본 매출 1위 출판사 출신 7년차 온라인 마케터</span>가 함께,</br>
+좋은 책이 더 많은 독자에게 닿을 수 있도록 도와드립니다.</p>
+    </aside>
+  </section>
+
+  <section>
+    <h2>2. Our Strength: 왜 우리여야 하는가?</h2>
+    <p>✅ <span class="bold">출판 현장을 누구보다 잘 아는 실무 전문가 팀</span></p>
+    <ul>
+      <li>연 매출 100억 규모 종합 출판사에서 도서 영업·마케팅·기업 제휴까지 총괄한 <span class="bold">마케팅 팀장 출신</span></li>
+      <li>단행본 매출 1위 출판사에서 콘텐츠 기획, 광고, 채널 제휴까지 직접 운영한 <span class="bold">출판 전문 온라인 마케터</span></li>
+    </ul>
+
+    <p>✅ <span class="bold">7년간 약 500여 종 이상의 실전 경험</span></p>
+    <ul>
+      <li>월 평균 3종 이상 도서 마케팅을 7년간 진행하며 쌓은 실전 데이터</li>
+      <li>경제경영, 자기계발, 인문, 문학, 어학 등 전 분야 베스트셀러를 만들어온 노하우</li>
+    </ul>
+
+    <p>✅ <span class="bold">출판사와 한 팀처럼 움직이는 체계적인 운영</span></p>
+    <ul>
+      <li>책의 콘셉트와 출판사의 방향성에 맞춘 맞춤형 마케팅 전략 수립</li>
+      <li>서점·플랫폼 마케팅부터 SNS·퍼포먼스 마케팅까지 원스톱 지원</li>
+      <li>캠페인 종료 후에도 데이터를 분석하고, 다음 전략을 위한 보고서 제공</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Service Scope: 제공 서비스 상세</h2>
+    <p>📦 <span class="bold">출판 마케팅 캠페인 패키지 (협의 후 조정 가능)</span></p>
+    <table>
+      <tr>
+        <th>항목</th>
+        <th>⭐ 동행 캠페인<br>(70만 원 / 2주)</th>
+        <th>🌿 성장 캠페인<br>(100만 원 / 3주)</th>
+        <th>🚀 확장 캠페인<br>(200만 원 / 4주)</th>
+      </tr>
+      <tr>
+        <td class="bold">도서 마케팅 분석</td>
+        <td>- 분야·시장 분석<br>- 경쟁·유사 도서 분석<br>- 타깃 독자 도출 및 분석<br>- 홍보 카피 기획·제안<br>- 출간 전·후 타임라인 플래닝</td>
+        <td>+ 출간 시점·이슈·시즌 연계 아이디어 제안</td>
+        <td>성장 캠페인과 동일</td>
+      </tr>
+      <tr>
+        <td class="bold">카드뉴스 제작</td>
+        <td>2건</td>
+        <td>4건</td>
+        <td>6건</td>
+      </tr>
+      <tr>
+        <td class="bold">블로그 콘텐츠 제작</td>
+        <td>2건</td>
+        <td>4건</td>
+        <td>6건</td>
+      </tr>
+      <tr>
+        <td class="bold">릴스/숏폼 영상 제작</td>
+        <td>X</td>
+        <td>1건</td>
+        <td>2건</td>
+      </tr>
+      <tr>
+        <td class="bold">메타 광고 운영<br><small>(광고비 출판사 부담)</small></td>
+        <td>X</td>
+        <td>기본 세팅·타깃 설정</td>
+        <td>광고 세팅·운영 + 맞춤 전략 제안</td>
+      </tr>
+      <tr>
+        <td class="bold">커뮤니티 바이럴</td>
+        <td>X</td>
+        <td>게시글 3건</td>
+        <td>게시글 5건 + 독자 참여 이벤트 기획</td>
+      </tr>
+      <tr>
+        <td class="bold">서평단 운영<br><small>(출판사 도서 지원 필요)</small></td>
+        <td>기본 운영 1회</td>
+        <td>기본 운영 1회</td>
+        <td>인플루언서·책스타그램 포함 확장 서평단</td>
+      </tr>
+      <tr>
+        <td class="bold">채널 제휴</td>
+        <td>X</td>
+        <td>타깃 채널 분석 및 제안</td>
+        <td>타깃 채널 분석 및 제안</td>
+      </tr>
+      <tr>
+        <td class="bold">언론 홍보</td>
+        <td>X</td>
+        <td>도서 보도자료 작성·배포</td>
+        <td>+ 기획 기사 작성(작가 인터뷰 등)</td>
+      </tr>
+      <tr>
+        <td class="bold">굿즈 제작 기획</td>
+        <td>X</td>
+        <td>굿즈 아이디어 제안</td>
+        <td>+ 굿즈 기획·제작·이벤트 협의<br><small>(제작비 출판사 부담)</small></td>
+      </tr>
+      <tr>
+        <td class="bold">결과 보고서</td>
+        <td>간단 요약 리포트</td>
+        <td>상세 리포트</td>
+        <td>+ 다음 전략 제안 포함</td>
+      </tr>
+    </table>
+
+    <div class="cta-section">
+      <a href="#content-examples.html" class="cta-button">👉 어떤 콘텐츠를 만들 수 있나요? 눌러서 확인해 보세요!</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Process: 업무 진행 방식</h2>
+    <div class="process-box">
+      <div class="step-title">1️⃣ 초기 상담 & 니즈 파악</div>
+      <p>- 출간 예정 도서·목표 독자·마케팅 예산·운영 기간 등 기본 정보 확인<br>- 출판사만의 비전과 책의 콘셉트 이해</p>
+    </div>
+    <div class="process-box">
+      <div class="step-title">2️⃣ 맞춤 전략 수립 & 제안</div>
+      <p>- 도서·시장·타깃 분석<br>- 채널/콘텐츠 전략, 캠페인 일정 설계<br>- 패키지·견적 제안</p>
+    </div>
+    <div class="process-box">
+      <div class="step-title">3️⃣ 계약 & 일정 확정</div>
+      <p>- 세부 일정 확정, 커뮤니케이션 채널 세팅(메일/톡 등)</p>
+    </div>
+    <div class="process-box">
+      <div class="step-title">4️⃣ 캠페인 운영 & 콘텐츠 제작</div>
+      <p>- 카드뉴스·릴스·보도자료·광고 등 실무 진행<br>- 서평단·커뮤니티·제휴 순차 실행</p>
+    </div>
+    <div class="process-box">
+      <div class="step-title">5️⃣ 성과 분석 & 리포트 제공</div>
+      <p>- 데이터 수집·분석<br>- 결과 보고서·개선 방향 제안</p>
+    </div>
+    <p>📌 모든 단계에서: 전담 실무진 직접 운영 · 출판사와 실시간 소통 · 실행 중심 마케팅</p>
+  </section>
+
+  <section>
+    <h2>5. Contact & Next Step</h2>
+    <div class="contact-box">
+      <p>📍 <span class="bold">담당자</span>: 전유진</p>
+      <p>✉️ <span class="bold">메일</span>: thin90516@naver.com</p>
+      <p>📞 <span class="bold">연락처</span>: 010-8805-1420</p>
+      <p>책과 출판사만의 이야기가 더 멀리, 더 많은 독자에게 닿을 수 있도록 <span class="bold">전문성과 실전 경험</span>으로 함께하겠습니다. 편하게 연락 주세요! 😊</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// 스크롤 기반 애니메이션을 위한 인터섹션 옵저버
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+// 스크롤 애니메이션 대상 요소들 관찰
+document.addEventListener('DOMContentLoaded', () => {
+  const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+  elementsToAnimate.forEach(el => observer.observe(el));
+});
+
+// 부드러운 스크롤링
+document.addEventListener('click', (e) => {
+  if (e.target.matches('a[href^="#"]')) {
+    e.preventDefault();
+    const targetId = e.target.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+});
+</script>
+
+</body>
+</html>
